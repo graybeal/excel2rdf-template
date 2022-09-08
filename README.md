@@ -4,7 +4,7 @@
 
 # excel2rdf-template
 
-This resource represents a template Github repository for the workflow automatization described in https://excel2rdf.readthedocs.io .
+This resource represents a template Github repository for the workflow automatization described in https://excel2rdf.readthedocs.io.
 
 You can fork this repo in order to set up an equivalent service in your own repository.
 
