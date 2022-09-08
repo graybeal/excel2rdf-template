@@ -1,64 +1,68 @@
 @prefix dct: <http://purl.org/dc/terms/> .
-@prefix pav: <http://purl.org/pav/> .
+@prefix ex-voc: <https://purl.org/exampleorg/examplevocab/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix temp-vocab: <http://www.fairdatacollective.com/template-vocabulary/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://www.fairdatacollective.com/template-vocabulary/> a skos:ConceptScheme;
-  dct:contributor <https://orcid.org/0000-0001-6875-5360>;
-  dct:creator <https://orcid.org/0000-0002-9381-9694>;
+<https://purl.org/exampleorg/examplevocab> a skos:ConceptScheme;
+  dct:conbtributor <https://orcid.org/0000-0001-8888-635X>;
+  dct:created "2022-06-01T00:00:00+00:00"^^xsd:datetime;
+  dct:creator <https://orcid.org/0000-0001-6875-5360>, <https://orcid.org/0000-0002-9381-9693>,
+    <https://orcid.org/0000-0003-2195-3997>;
   dct:description "This is a template for building a SKOS-based controlled vocabulary. It is used as base of the worflow described in excel2rdf.readthedocs.io/"@en;
-  dct:title "Template for building SKOS based controlled vocabulary"@en;
-  pav:createdOn "2020-10-22T22:00:00+01:00"@en;
-  pav:lastUpdatedOn "2021-02-21T16:32:00-08:00"@en;
-  pav:version "0.1.2"@en;
-  skos:hasTopConcept temp-vocab:TopConceptOne, temp-vocab:TopConceptTwo;
-  skos:prefLabel "Template for building SKOS based controlled vocabulary"@en .
+  dct:hasVersion "0.3.0";
+  dct:modified "2022-09-08T00:47:46+00:00"^^xsd:datetime;
+  dct:rights <https://spdx.org/licenses/CC0-1.0>;
+  dct:title "Example template for building SKOS vocabularies"@en;
+  skos:hasTopConcept ex-voc:TopConceptOne, ex-voc:TopConceptTwo;
+  skos:prefLabel "Example template for building SKOS vocabularies"@en;
+  foaf:homepage <https://github.com/fair-data-collective/excel2rdf-template> .
 
-temp-vocab:TopConceptOne a skos:Concept;
+ex-voc:TopConceptOne a skos:Concept;
   dct:contributor <https://orcid.org/0000-0001-6875-5360>;
   dct:creator <https://orcid.org/0000-0002-9381-9693>;
+  skos:altLabel "Best Concept"@en, "First Concept"@en;
   skos:definition "This is a top concept which is used to collect a number of narrower concepts."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
-  skos:narrower temp-vocab:NarrowConceptOne, temp-vocab:NarrowConceptTwo;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Top Concept One"@en;
-  skos:topConceptOf <http://www.fairdatacollective.com/template-vocabulary/> .
+  skos:topConceptOf <https://purl.org/exampleorg/examplevocab> .
 
-temp-vocab:NarrowConceptOne a skos:Concept;
+ex-voc:NarrowConceptOne a skos:Concept;
   dct:creator <https://orcid.org/0000-0001-6875-5360>;
-  skos:broader temp-vocab:TopConceptOne;
+  skos:broader "temp-vocab:TopConceptOne"@en;
   skos:definition "A definition of NarrowConceptOne, which has a broader concept TopConceptOne."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Narrow Concept One"@en .
 
-temp-vocab:NarrowConceptTwo a skos:Concept;
+ex-voc:NarrowConceptTwo a skos:Concept;
   dct:creator <https://orcid.org/0000-0001-6875-5360>;
-  skos:broader temp-vocab:TopConceptOne;
+  skos:broader "temp-vocab:TopConceptOne"@en;
   skos:definition "A definition of NarrowConceptTwo, which has a broader concept TopConceptOne."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Narrow Concept Two"@en .
 
-temp-vocab:TopConceptTwo a skos:Concept;
+ex-voc:TopConceptTwo a skos:Concept;
   dct:contributor <https://orcid.org/0000-0001-6875-5360>;
   dct:creator <https://orcid.org/0000-0002-9381-9693>;
+  skos:altLabel "Last Concept"@en, "Second Concept"@en;
   skos:definition "This is yet another top concept which is used to collect a number of narrower concepts."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
-  skos:narrower temp-vocab:NarrowConceptFour, temp-vocab:NarrowConceptThree;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Top Concept Two"@en;
-  skos:topConceptOf <http://www.fairdatacollective.com/template-vocabulary/> .
+  skos:topConceptOf <https://purl.org/exampleorg/examplevocab> .
 
-temp-vocab:NarrowConceptThree a skos:Concept;
+ex-voc:NarrowConceptThree a skos:Concept;
   dct:contributor <https://orcid.org/0000-0001-6875-5360>;
   dct:creator <https://orcid.org/0000-0002-9381-9693>;
-  skos:broader temp-vocab:TopConceptTwo;
+  skos:broader "temp-vocab:TopConceptTwo"@en;
   skos:definition "A definition of NarrowConceptThree, which has a broader concept TopConceptTwo."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Narrow Concept Three"@en .
 
-temp-vocab:NarrowConceptFour a skos:Concept;
+ex-voc:NarrowConceptFour a skos:Concept;
   dct:contributor <https://orcid.org/0000-0001-6875-5360>;
   dct:creator <https://orcid.org/0000-0002-9381-9693>;
-  skos:broader temp-vocab:TopConceptTwo;
+  skos:broader "temp-vocab:TopConceptTwo"@en;
   skos:definition "A definition of NarrowConceptFour, which has a broader concept TopConceptTwo."@en;
-  skos:inScheme <http://www.fairdatacollective.com/template-vocabulary/>;
+  skos:inScheme <https://purl.org/exampleorg/examplevocab>;
   skos:prefLabel "Narrow Concept Four"@en .
